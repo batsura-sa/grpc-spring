@@ -11,22 +11,22 @@ buildscript {
         projectVersion = '3.2.0-SNAPSHOT'
 
         // https://github.com/grpc/grpc-java/releases
-        grpcVersion = '1.63.0'
+        grpcVersion = '1.73.0'
 
         // https://github.com/google/guava/releases
-        guavaVersion = '33.2.1-jre'
+        guavaVersion = '33.4.8-jre'
         // https://github.com/protocolbuffers/protobuf/releases
-        protobufVersion = '3.25.3'
-        protobufGradlePluginVersion = '0.9.4'
+        protobufVersion = '4.31.1'
+        protobufGradlePluginVersion = '0.9.5'
 
         // https://github.com/spring-projects/spring-boot/releases
-        springBootVersion = '3.2.5'
+        springBootVersion = '3.5.4'
         // https://github.com/spring-cloud/spring-cloud-release/releases
-        springCloudVersion = '2023.0.1'
+        springCloudVersion = '2025.0.0'
         // https://github.com/alibaba/spring-cloud-alibaba/releases
         springCloudAlibabaNacosVersion = '2023.0.1.0'
 
-        lombokPluginVersion = '8.6'
+        lombokPluginVersion = '8.14'
         versioningPluginVersion = '3.1.0'
         versionsPluginVersion = '0.51.0'
 
@@ -46,6 +46,7 @@ plugins {
     id 'com.github.ben-manes.versions' version "${versionsPluginVersion}" // gradle dependencyUpdates
     id 'com.diffplug.spotless' version '6.25.0'
     id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}" apply false
+    id 'com.vanniktech.maven.publish.base' version '0.34.0' apply false
 }
 
 // If you attempt to build without the `--scan` parameter in `gradle 6.0+` it will cause a build error that it can't find
@@ -256,7 +257,7 @@ allprojects { project ->
 
 apply from: './deploy.gradle'
 
-group = 'net.devh'
+group = 'io.github.batsura-sa'
 version = projectVersion
 
 dependencies {
@@ -265,3 +266,4 @@ dependencies {
 
     testImplementation project(':tests')
 }
+

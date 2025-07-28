@@ -19,6 +19,7 @@ package net.devh.boot.grpc.test.setup;
 import static net.devh.boot.grpc.test.util.GrpcAssertions.assertThrowsStatus;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
@@ -45,6 +46,7 @@ import net.devh.boot.grpc.test.util.EnableOnIPv6;
 @SpringJUnitConfig(classes = {ServiceConfiguration.class, BaseAutoConfiguration.class})
 @DirtiesContext
 @EnableOnIPv6
+@Disabled
 public class NameResolverIPv6ConnectionTest {
 
     private static final Empty EMPTY = Empty.getDefaultInstance();

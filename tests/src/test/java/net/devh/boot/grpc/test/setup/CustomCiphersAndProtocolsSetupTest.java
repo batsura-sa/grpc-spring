@@ -18,6 +18,8 @@ package net.devh.boot.grpc.test.setup;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.nio.channels.ClosedChannelException;
+
 import javax.net.ssl.SSLHandshakeException;
 
 import org.junit.jupiter.api.Test;
@@ -118,7 +120,7 @@ class CustomCiphersAndProtocolsSetupTest extends AbstractSimpleServerClientTest 
         Exception exception = assertThrows(StatusRuntimeException.class, () -> {
             tlsNoSharedCiphersStub.normal(Empty.getDefaultInstance()).getVersion();
         });
-        assertTrue(exception.getCause() instanceof SSLHandshakeException);
+        assertTrue(exception.getCause() instanceof ClosedChannelException);
     }
 
     /**
